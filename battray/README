@@ -1,0 +1,12 @@
+Battray is a nice program that provides a tray icon to inform you of the
+battery status of your notebook.  It is simple, easy to use and configure,
+fairly environment-independent (http://code.google.com/p/battray/).
+
+However, it wants to do some nasty things like coloring the battery image
+and does not respect custom datadir well (as it should); it also terminates
+status messages with a dot (full stop) which I do not like.  Here you can
+find my config and a patch I use when building FreeBSD port thereof.
+
+P.S.  Battery state icons I refer in config file are taken from libre icon
+pack (quite awesome) "Fugue Icons" from Japanese artist Yusuke Kamiyamane,
+his website: http://p.yusukekamiyamane.com/.
