@@ -1,0 +1,124 @@
+--- bin/battray.orig	2012-07-12 22:51:15.000000000 +0800
++++ bin/battray	2012-07-13 15:21:56.000000000 +0800
+@@ -79,7 +79,6 @@
+ 
+ _config = {}
+ _p = None
+-_usecolor = True
+ _playonce = {}
+ 
+ def Init():
+@@ -188,14 +187,13 @@
+ 	try:
+ 		exec open(config, 'r').read()
+ 		_config['icon'] = icon
+-		_config['color'] = color
+ 		_config['blink'] = blink
+ 		_config['play'] = play
+ 		_config['run'] = run
+ 
+ 		if full:
+ 			_config['file'] = config
+-			_config['datadir'] = sys.prefix + '/share/battray'
++			_config['datadir'] = datadir
+ 			_config['pollinterval'] = pollinterval
+ 
+ 	except:
+@@ -254,76 +252,41 @@
+ 	"""
+ 	Set icon & tooltip.
+ 	"""
+-	global _usecolor
+ 
+ 	text = []
+ 
+ 	# Make some pretty tooltip text and determine icon.
+ 	if ac == None:
+-		text.append('Cannot get battery status.\n')
++		text.append('Cannot get battery status\n')
+ 	elif ac:
+-		text.append('Connected to AC power.\n')
++		text.append('Connected to AC power\n')
+ 	elif not ac:
+-		text.append('Running on battery.\n')
++		text.append('Running on battery\n')
+ 	
+ 	if percent == -1:
+-		text.append('Cannot get battery percentage status.\n')
++		text.append('Cannot get battery percentage status\n')
+ 	else:
+-		text.append('%i percent battery power remaining.\n' % percent)
++		text.append('%i%% battery remains\n' % percent)
+ 	
+ 	if charging or ac:
+ 		pass
+ 	elif lifetime == -1:
+-		text.append('Unknown lifetime remaining.\n')
++		text.append('Unknown lifetime remaining\n')
+ 	else:
+-		t = lifetime / 60.0
+-		text.append('Approximately %.1f hours remaining.\n' % t)
++		(h, m) = (lifetime / 60, lifetime % 60)
++		text.append('Running time: %d:%02d\n' % (h, m))
+ 
+ 	if charging == None:
+ 		# Just skip
+ 		pass
+ 	elif charging == True:
+-		text.append('Charging battery.')
++		text.append('Charging battery')
+ 	else:
+-		text.append('Not charging battery.')
++		text.append('Not charging battery')
+ 
+ 	icon = gtk.gdk.pixbuf_new_from_file('%s/icons/%s' % (_config['datadir'],
+ 		_config['icon']))
+ 
+-	# Fill battery icon with background to indicate status. Skip everything
+-	# that's black to preserve the plus sign.
+-	if not ac or charging:
+-		fill = gtk.gdk.pixbuf_new_from_file('%s/icons/%s.png' % (
+-			_config['datadir'], _config['color']))
+-
+-		# May not always work, this feature requires py-numpy, which is disabled
+-		# by default on FreeBSD because it pulls in gcc4.4
+-		try:
+-			pixelArray = icon.get_pixels_array()
+-		except RuntimeError:
+-			if _usecolor:
+-				_usecolor = False
+-				print >> sys.stderr, 'Battray: py-gtk2 needs to be compiled with numpy',
+-				print >> sys.stderr, 'to change the color of the status icon'
+-
+-		if _usecolor:
+-			# 24 pixels wide
+-			fillamount = int(round(percent / 4))
+-		
+-			col = 2
+-			while col <= fillamount + 2:
+-				row = 10
+-				while row <= 21:
+-					# Black pixel
+-					if pixelArray[row][col][3] == 255:
+-						row += 1
+-						continue
+-
+-					#print icon, col, row
+-					fill.copy_area(0, 0, 1, 1, icon, col, row)
+-					row += 1
+-				col += 1
+-
+ 	# Warn the user if battery is low
+ 	if _config.get('blink'):
+ 		tray.set_blinking(True)
+--- setup.py.orig	2012-07-12 03:29:12.000000000 +0800
++++ setup.py	2012-07-14 23:35:05.000000000 +0800
+@@ -27,7 +27,7 @@
+ 	platforms = '',
+ 	license = '',
+ 	packages = ['battray', 'battray/platforms'],
+-	scripts = glob.glob('bin/*'),
++	scripts = ['bin/battray'],
+ 	data_files = [
+ 		('share/battray', ['data/alert.wav']),
+ 		('share/battray/icons', glob.glob('data/icons/*')),
