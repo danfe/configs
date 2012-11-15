@@ -1,0 +1,22 @@
+theme striped
+
+panel
+	position top
+
+launchbar
+	exec xterm
+		icon /home/danfe/down/repos/fugue-icons/icons/terminal.png
+	exec firefox
+		icon /usr/local/lib/firefox/chrome/icons/default/default16.png
+	exec skype
+		icon /usr/local/share/skype/icons/SkypeBlue_16x16.png
+	exec psi
+		icon /usr/local/share/icons/hicolor/16x16/apps/psi.png
+	exec hotot-qt
+		icon /usr/local/share/icons/hicolor/32x32/apps/hotot.png
+	exec gnucash
+		icon /usr/local/share/icons/hicolor/16x16/apps/gnucash-icon.png
+	exec deadbeef
+		icon /usr/local/share/icons/hicolor/16x16/apps/deadbeef.png
+	exec gtkpod
+		icon /usr/local/share/icons/hicolor/16x16/apps/gtkpod.png
