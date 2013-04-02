@@ -1,0 +1,105 @@
+# Kernel for:	organa.lawndale.high
+# Tag:		. (HEAD)
+#
+cpu		HAMMER
+ident		ORGANA
+options 	INCLUDE_CONFIG_FILE
+makeoptions	DEBUG=-g
+#options 	USB_DEBUG
+
+# Some common stuff
+#
+#options 	SCHED_ULE
+options 	SCHED_FBFS
+options 	PREEMPTION
+options 	INET
+options 	INET6
+options 	TCP_OFFLOAD
+options 	SCTP
+options 	FFS
+options 	SOFTUPDATES
+options 	UFS_ACL
+options 	UFS_DIRHASH
+options 	COMPAT_FREEBSD32
+options 	COMPAT_FREEBSD4
+options 	COMPAT_FREEBSD5
+options 	COMPAT_FREEBSD6
+options 	COMPAT_FREEBSD7
+options 	DEVICE_POLLING
+options 	KTRACE
+options 	STACK
+#options 	SYSVSHM		# required on amd64 for freebsd32
+#options 	SYSVMSG		# -"-
+#options 	SYSVSEM		# -"-
+options 	_KPOSIX_PRIORITY_SCHEDULING
+options 	PRINTF_BUFR_SIZE=128
+options 	KBD_INSTALL_CDEV
+options 	HWPMC_HOOKS
+#options 	AUDIT
+#options 	CAPABILITY_MODE
+#options 	CAPABILITIES
+#options 	MAC
+options 	SW_WATCHDOG	# MP_WATCHDOG does not work with ULE
+
+# DTrace-related options
+#
+options 	KDTRACE_FRAME
+options 	KDTRACE_HOOKS
+options 	DDB_CTF
+makeoptions	WITH_CTF=1
+
+# Debug-related stuff and performance tuning
+#
+options 	KDB
+options 	KDB_UNATTENDED
+#options 	KDB_TRACE
+options 	DDB
+options 	GDB
+#options 	DEADLKRES
+#options 	INVARIANTS
+#options 	INVARIANT_SUPPORT
+#options 	WITNESS
+#options 	WITNESS_SKIPSPIN
+#options 	MALLOC_DEBUG_MAXZONES=8
+
+# Buses and PICs
+#
+options 	SMP
+device		acpi
+device		pci
+
+# SCSI stuff
+#
+options 	ATA_CAM
+device		scbus
+device		ch
+device		da
+device		sa
+device		cd
+device		pass
+device		ses
+device		ctl
+device		sg		# linux scsi passthrough
+
+# Console
+#
+device		atkbdc
+device		atkbd
+device		psm
+device		vga
+options 	VGA_WIDTH90
+device		splash
+device		sc
+options 	SC_ALT_MOUSE_IMAGE
+options 	SC_HISTORY_SIZE=(37*64)
+options 	SC_PIXEL_MODE
+options 	SC_TWOBUTTON_MOUSE
+
+# Miscellaneous
+#
+device		loop
+device		ether
+device		bpf
+nodevice	io
+nodevice	mem
+device		uart		# must be compiled-in for serial console
