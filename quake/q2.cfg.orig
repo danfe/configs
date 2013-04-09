@@ -1,0 +1,102 @@
+/////////////////////////////////////////////////
+// sP1Sp0pD's Quake II [DM] configuration file //
+/////////////////////////////////////////////////
+
+// Evironmental settings
+//
+set bob_pitch		0
+set bob_roll		0
+set bob_up		0
+
+// X11 video settings
+set cl_blend		0
+set cl_gun		0
+set cl_noskins		1
+set cl_particles	0
+set cl_run		1	// always run
+
+set crosshair		3	// angle crosshair
+set fov			120	// field of view
+set freelook		1
+set g_select_empty	1
+
+set gender		female
+set hand		2	// center-handed
+
+unbindall
+
+// Some useful (or not) aliases
+//
+alias	+dj	"+moveup;wait;wait;wait;wait;-moveup;wait;wait;wait;wait;+moveup"
+alias	-dj	"-moveup"
+
+// Action bindings
+//
+bind	w	"+forward"
+bind	s	"+back"
+bind	a	"+moveleft"
+bind	d	"+moveright"
+bind	space	"+moveup"
+bind	alt	"+movedown"
+bind	shift	"+walk"
+bind	z	"+rj"
+bind	mouse1	"+attack"
+bind	mouse2	"+dj"
+
+// Useful weapon aliases and bindings
+//
+//   q	 rail
+//   e	 rl
+//   c	*perforator/machinegun
+//   f	*piper/grenades
+//   3	*ssg/sg
+//   x	*bfg10k/hyper
+//   1	 blaster
+//
+
+// define prettier shorter names
+alias	bl	"use blaster"
+alias	sg	"use shotgun"
+alias	ssg	"use super shotgun"
+alias	mg	"use machinegun"
+alias	chg	"use chaingun"
+alias	hg	"use grenades"
+alias	gl	"use grenade launcher"
+alias	rl	"use rocket launcher"
+alias	hb	"use hyperblaster"
+alias	rg	"use railgun"
+alias	bfg	"use bfg10k"
+
+// weapon reset
+//alias	wr	"bind r _chg;bind f _gl;bind x _ssg;bind c _bfg"
+//alias	wr_chg	"bind f _gl;bind x _ssg;bind c _bfg"
+//alias	wr_gl	"bind r _chg;bind x _ssg;bind c _bfg"
+//alias	wr_ssg	"bind r _chg;bind f _gl;bind c _bfg"
+//alias	wr_bfg	"bind r _chg;bind f _gl;bind x _ssg"
+
+// cool weapon switching scheme
+//alias	_rg	"rg;wr"
+//alias	_rl	"rl;wr"
+//alias	_bl	"bl;wr"
+//alias	_chg	"mg;chg;bind r _mg;wr_chg"
+//alias	_mg	"mg;bind r _chg"
+//alias	_gl	"hg;gl;bind f _hg;wr_gl"
+//alias	_hg	"hg;bind f _gl"
+//alias	_ssg	"sg;ssg;bind x _sg;wr_ssg"
+//alias	_sg	"sg;bind x _ssg"
+//alias	_bfg	"hb;bfg;bind c _hb;wr_bfg"
+//alias	_hb	"hb;bind c _bfg"
+
+// now we bind 'em all
+bind	q	"_rg"
+bind	e	"_rl"
+bind	r	"_chg"
+bind	f	"_gl"
+bind	x	"_ssg"
+bind	c	"_bfg"
+bind	1	"_bl"
+
+// Miscellaneous bindings
+//
+bind	/	"say gg :)"
+bind	t	"messagemode"
