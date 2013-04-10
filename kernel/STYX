@@ -24,7 +24,6 @@ options 	COMPAT_FREEBSD5
 options 	COMPAT_FREEBSD6
 options 	COMPAT_FREEBSD7
 #options 	DEVICE_POLLING
-#options 	PERFMON
 options 	KTRACE
 options 	STACK
 options 	_KPOSIX_PRIORITY_SCHEDULING
@@ -81,12 +80,11 @@ options 	SC_TWOBUTTON_MOUSE
 #
 device		loop
 device		ether
-#device		pty
 device		bpf
 #device		pmtimer
 #device		snp
 nodevice	io
-nodevice	mem
+nodevice	mem		# required for SMP
 device		uart		# must be compiled-in for serial console
 
 nooption 	GEOM_PART_BSD
