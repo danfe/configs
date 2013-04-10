@@ -37,13 +37,6 @@ options 	HWPMC_HOOKS
 #options 	MAC
 options 	SW_WATCHDOG
 
-# DTrace-related options
-#
-#options 	KDTRACE_FRAME
-#options 	KDTRACE_HOOKS
-#options 	DDB_CTF
-#makeoptions	WITH_CTF=1
-
 # Debug-related stuff and performance tuning
 #
 options 	KDB
@@ -100,4 +93,4 @@ device		bpf
 #device		pmtimer
 #device		snp
 nodevice	io
-nodevice	mem
+nodevice	mem		# required for SMP
