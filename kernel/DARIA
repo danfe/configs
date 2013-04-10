@@ -54,7 +54,7 @@ options 	GDB
 
 # Buses and PICs
 #
-#options 	SMP
+options 	SMP
 device		apic		# needed on non-apic systems for hwpmc(4)
 #device		acpi
 device		pci
@@ -93,4 +93,4 @@ device		bpf
 #device		pmtimer
 #device		snp
 nodevice	io
-nodevice	mem		# required for SMP
+#nodevice	mem		# required for SMP
