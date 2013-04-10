@@ -1,4 +1,4 @@
-# Kernel for:	daria.lawndale.high
+# Kernel for:	daria.lawndale.high (laptop)
 # Tag:		RELENG_8
 #
 cpu		I586_CPU
@@ -24,7 +24,6 @@ options 	COMPAT_FREEBSD4
 options 	COMPAT_FREEBSD5
 options 	COMPAT_FREEBSD6
 options 	COMPAT_FREEBSD7
-#options 	DEVICE_POLLING
 options 	PERFMON
 options 	KTRACE
 options 	STACK
