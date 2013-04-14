@@ -78,7 +78,6 @@ device		sa
 device		cd
 device		pass
 device		ses
-device		ctl
 device		sg		# linux scsi passthrough
 
 # Console

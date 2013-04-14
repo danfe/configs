@@ -30,7 +30,6 @@ options 	STACK
 options 	_KPOSIX_PRIORITY_SCHEDULING
 options 	PRINTF_BUFR_SIZE=128
 options 	KBD_INSTALL_CDEV
-#options 	FB_INSTALL_CDEV
 options 	HWPMC_HOOKS
 #options 	AUDIT
 #options 	MAC
@@ -92,4 +91,4 @@ device		bpf
 #device		pmtimer
 #device		snp
 nodevice	io
-#nodevice	mem		# required for SMP
+#nodevice	mem		# must be compiled-in for SMP

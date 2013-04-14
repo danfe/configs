@@ -84,7 +84,7 @@ device		bpf
 #device		pmtimer
 #device		snp
 nodevice	io
-nodevice	mem		# required for SMP
+nodevice	mem		# must be compiled-in for SMP
 device		uart		# must be compiled-in for serial console
 
 nooption 	GEOM_PART_BSD
