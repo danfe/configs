@@ -1,0 +1,40 @@
+!XTerm.VT100.faceName: Droid Sans Mono Slashed
+!XTerm.VT100.faceSize: 12
+XTerm.VT100.faceName: Consolas
+XTerm.VT100.faceSize: 13
+!XTerm.VT100.faceNameDoublesize: Simsun:pixelsize=17
+!XTerm.VT100.faceNameDoublesize: Vera Sans YuanTi Mono:pixelsize=17
+XTerm.VT100.faceNameDoublesize: WenQuanYi Zen Hei Mono:pixelsize=17
+
+XTerm.VT100.color1:	rgb:ee/9e/9e
+XTerm.VT100.color2:	rgb:88/cc/88
+!XTerm.VT100.color3:	rgb:ee/ee/9e
+XTerm.VT100.color3:	wheat2
+!XTerm.VT100.color4:	rgb:49/93/bb
+XTerm.VT100.color4:	rgb:00/5d/bb
+XTerm.VT100.color5:	rgb:ee/9e/ee
+XTerm.VT100.color6:	rgb:9e/ee/ee
+XTerm.VT100.color7:	rgb:dd/dd/dd
+
+XTerm.VT100.background:		black
+XTerm.VT100.foreground:		honeydew3
+XTerm.VT100.cursorColor:	aquamarine3
+!XTerm.VT100.pointerColor:	red :)
+
+XTerm.VT100.colorULMode:	true
+XTerm.VT100.underLine:		false
+XTerm.VT100.colorUL:		green
+
+XTerm.VT100.charClass:	33:48,35-37:48,43:48,45-47:48,64:48
+
+XTerm.VT100.translations:	#override \
+	<Key>Delete:		string(0x7f) \n\
+	<Key>KP_Delete:		string(0x7f) \n\
+	Ctrl<Key>BackSpace:	string(0x1b) string(0x08)
+
+XTerm.VT100.eightBitSelectTypes:	utf8,i18n,string
+XTerm.VT100.metaSendsEscape:		true
+XTerm.VT100.saveLines:		4096
+!XTerm.VT100.inputMethod:	fcitx
+
+!Xcursor.theme:	jaguarx
