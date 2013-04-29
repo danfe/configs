@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# Written by Alexey Dokuchaev <danfe@nsu.ru>, Apr 2013
+#
+# Allows to list/unpack Quake I and II .PAK files by calling par(1) utility
+# (http://ibiblio.org/pub/linux/games/quake/).
+
+# Since mtimes are not stored in the .pak file, fake them by setting them to
+# mtime of the container (.pak file itself)
+par_list()
+{
+    # GNU stat(1) is different from BSD stat(1), let's support both
+    if stat --version >/dev/null 2>&1; then
+        mtime=`date '+%D %R' -d"$(stat -Lc %y "$1")"`
+    else
+        mtime=`stat -Lf %Sm -t '%D %R' "$1"`
+    fi
+
+    par -vl "$1" | awk -v pak="$1" -v uid=`id -u` -v gid=`id -g` \
+        -v mtime="$mtime" '/^Summary for pak archive/ { exit 0; }
+            { print "-rw-r--r-- 1 " uid " " gid " " $2 " " mtime " " $1 }'
+}
+
+# Unfortunately, Midnight Commander expects that everything can extract its
+# shit to stdout :(
+par_copyout()
+{
+    TMPDIR=`mktemp -d "${MC_TMPDIR:-/tmp}/mctmpdir-upar.XXXXXX"` || exit 1
+    cd "$TMPDIR"
+    par -x "$1" "$2" && mv "$2" "$3"
+    rm -r "$TMPDIR"
+}
+
+cmd=$1 ; shift
+
+case $cmd in
+    list | copyout)
+        par_$cmd "$@"
+        ;;
+    *)
+        exit 1
+        ;;
+esac
