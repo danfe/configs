@@ -81,7 +81,7 @@ options 	SC_TWOBUTTON_MOUSE
 device		loop
 device		ether
 device		bpf
-#device		pmtimer
+device		pmtimer
 #device		snp
 nodevice	io
 nodevice	mem		# must be compiled-in for SMP

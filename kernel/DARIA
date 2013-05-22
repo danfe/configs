@@ -88,7 +88,7 @@ device		loop
 device		ether
 device		pty
 device		bpf
-#device		pmtimer
+device		pmtimer
 #device		snp
 nodevice	io
 #nodevice	mem		# must be compiled-in for SMP
