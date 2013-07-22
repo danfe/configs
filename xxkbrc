@@ -1,0 +1,13 @@
+XXkb.mainwindow.type: tray
+XXkb.mainwindow.geometry: 16x16+0+0
+!XXkb.mainwindow.appicon: no
+!XXkb.mainwindow.in_tray: no
+!XXkb.controls.focusout: yes
+
+XXkb.image.path: /home/danfe/.config/xxkb
+XXkb.mainwindow.image.1: US.xpm
+XXkb.mainwindow.image.2: RU.xpm
+
+XXkb.button.geometry: 16x16+23+4
+XXkb.button.image.1: US.xpm
+XXkb.button.image.2: RU.xpm

@@ -1,0 +1,9 @@
+"mute.sh raise"
+    m:0x0 + c:176
+    XF86AudioRaiseVolume
+"mute.sh lower"
+    m:0x0 + c:174
+    XF86AudioLowerVolume
+"mute.sh mute"
+    m:0x0 + c:140
+    XF86AudioMute
