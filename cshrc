@@ -18,6 +18,7 @@ alias psg	ps auxww \| grep
 alias ds	find . -type f -print0 \| xargs -0 ls -l \| awk \''{ i += $5; } END { print i; }'\'
 alias pwgen	pwgen -sy 14
 alias fp	find /tmp/usr/ports
+alias gb	grep \''[[:blank:]]$'\'
 
 alias vmake	make MASTER_SITE_OVERRIDE=''
 alias lmake	make MASTER_SITE_OVERRIDE=ftp://linux/distfiles/
@@ -26,8 +27,9 @@ alias tmake	make PREFIX=/tmp/j
 alias vi	nvi
 alias ytd	env http_proxy=localhost:7777 youtube-dl -t -c
 alias lssh	luit -encoding koi8-r ssh
-# XXX: what does `ns' stand for? i forgot :(
-alias nsoff	xrandr --output LVDS --off
+alias lvds	xrandr --output LVDS		# notebook screen
+alias vga	xrandr --output VGA		# external display
+alias vt	xrandr --output VGA --auto	# toggle external display
 
 # A righteous umask
 umask 22
