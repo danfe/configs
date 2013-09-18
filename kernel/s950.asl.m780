@@ -1174,7 +1174,7 @@ DefinitionBlock ("/tmp/acpidump.aml", "DSDT", 1, "INTEL ", "ALVISO  ", 0x0604000
                     0x00000000,         // Range Minimum
                     0xFEBFFFFF,         // Range Maximum
                     0x00000000,         // Translation Offset
-                    0x00000000,         // Length
+                    0xFEC00000,         // Length
                     0x00,, _Y0D, AddressRangeMemory, TypeStatic)
                 DWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x00000000,         // Granularity
