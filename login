@@ -7,7 +7,18 @@
 
 #if ( -x /usr/games/fortune ) /usr/games/fortune freebsd-tips
 
-lolcat -F .01 -S 500 << EOD
+if ($term == xterm) then
+	alias filter lolcat -F .01 -S 500 -p 2
+else
+	set esc="\033["
+	set c1=`echo ${esc}40\;32\;1m`
+	set c2=`echo ${esc}40\;36\;1m`
+	set nc=`echo ${esc}0m`
+	alias filter sed -E \''1,15s,[^9][8db,.YP<>"]+,'"${c1}&${nc},g;s,(CEO|N|B|Z).*,${c2}&${nc},"\'
+	unset esc c1 c2 nc
+endif
+
+filter << EOD
 
                    ,d             b.
                 ,d888             888b.
@@ -27,3 +38,5 @@ lolcat -F .01 -S 500 << EOD
   Preliminary Clearance Approved.
 
 EOD
+
+unalias filter

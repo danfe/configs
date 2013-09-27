@@ -40,7 +40,7 @@ set echo_style = both
 
 setenv EDITOR vi
 setenv PAGER less
-setenv LESS -is
+setenv LESS -isR
 #setenv BLOCKSIZE K
 setenv LSCOLORS ExGxFxdxCxDxDxhbadExEx
 
